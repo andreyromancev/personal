@@ -1,8 +1,25 @@
 <template>
   <div class="home">
     <div class="content">
-      <div class="content__name">Andrey<br>Romancev</div>
-      <div class="content__title">full stack web developer</div>
+
+      <div class="header-content">
+        <div class="content__name">Andrey<br>Romancev</div>
+        <div class="content__title">full stack web developer</div>
+      </div>
+
+      <div class="middle-content">
+        <div>
+          <div class="divider"></div>
+          <div class="content__button">view code</div>
+          <div class="content__button">contact me</div>
+          <div class="divider"></div>
+        </div>
+      </div>
+
+      <div class="footer-content">
+        <a href="mailto:andrey@romancev.com" class="content__email">andrey@romancev.com</a>
+      </div>
+
     </div>
   </div>
 </template>
@@ -17,33 +34,64 @@ export default {
 </script>
 
 <style scoped lang="sass">
-  @import 'modularscale'
-
   .home
     width: 100%
     height: 100%
-
-    display: flex
-    justify-content: center
-    align-items: center
-
     //font-family: 'Montserrat'
     font-family: 'Source Sans Pro'
 
-    color: white
-
   .content
+    display: flex
+    flex-flow: column
+    justify-content: center
+    align-items: center
     text-align: center
+    color: white
+    height: 100%
+
+  .header-content
+    padding-top: 100px
+
+  .middle-content
+    flex: 1
+    display: flex
+    align-items: center
+
+  .footer-content
+    padding-bottom: 40px
 
   .content__name
     //font-family: 'Abel'
     font-family: 'Montserrat'
     //font-family: 'Source Sans Pro'
-    @include ms-respond(font-size, 3)
-    //letter-spacing: 0.05em
-    line-height: 60px
-    margin-bottom: 10px
+    font-size: 60px
+    line-height: 55px
 
   .content__title
-    @include ms-respond(font-size, 1)
+    margin-top: 10px
+    font-size: 20px
+
+  .content__button
+    display: inline-block
+    border: 1px solid white
+    border-radius: 1px
+    padding: 5px
+    width: 100px
+    cursor: pointer
+    margin: 10px 5px
+    font-family: 'Montserrat'
+    font-weight: bold
+
+  .content__email
+    color: white
+    text-decoration: none
+    font-size: 20px
+
+  .divider
+    border: 0
+    height: 1px
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0))
+    margin: 10px 0
+    max-width: 500px
+    width: 100%
 </style>

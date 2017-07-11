@@ -23,7 +23,7 @@ export default {
     font-family: 'Avenir', Helvetica, Arial, sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
-    background: rgba(79, 192, 141, 0.85)
+    background: #363B56
     height: 100vh
     width: 100vw
 
