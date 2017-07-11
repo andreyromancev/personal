@@ -1,3 +1,3 @@
 # Personal
 
-> Andrew Romantsev personal website.
+> Andrey Romantsev personal website.

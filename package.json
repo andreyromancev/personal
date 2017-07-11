@@ -1,8 +1,8 @@
 {
   "name": "personal",
   "version": "1.0.0",
-  "description": "Andrew Romancev personal website",
-  "author": "Andrew Romantsev <andrew@romancev.com>",
+  "description": "Andrey Romancev personal website",
+  "author": "Andrey Romantsev <andrey@romancev.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
