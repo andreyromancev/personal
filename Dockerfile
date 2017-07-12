@@ -1,12 +1,21 @@
-FROM node:latest
+FROM node:8.1.4 as builder
 
-WORKDIR /tmp
-ADD package.json /tmp/package.json
-RUN npm config set registry http://registry.npmjs.org/
+RUN mkdir -p /var/app
+WORKDIR /var/app
+
+COPY package.json .
 RUN npm install
-RUN mkdir -p /var/apps/web
-RUN cp -a /tmp/node_modules /var/apps/web
 
-WORKDIR /var/apps/web
-ADD . /var/apps/web
+COPY . .
 RUN npm run build
+
+
+FROM nginx:1.13.3
+
+WORKDIR /etc/nginx
+COPY --from=builder /var/app/dist/ /etc/nginx/dist
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
