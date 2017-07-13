@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style lang="sass">
+  @import "colors"
+
   body
     margin: 0
 
@@ -23,19 +25,19 @@ export default {
     font-family: 'Avenir', Helvetica, Arial, sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
-    background: #363B56
-    height: 100vh
+    background: $c-background
+    min-height: 100vh
     width: 100vw
 
   @font-face
     font-family: 'Abel'
-    src: url('~@/assets/fonts/abel.ttf') format('truetype')
+    src: url('~@/assets/font/abel.ttf') format('truetype')
 
   @font-face
     font-family: 'Montserrat'
-    src: url('~@/assets/fonts/montserrat.ttf')
+    src: url('~@/assets/font/montserrat.ttf')
 
   @font-face
     font-family: 'Source Sans Pro'
-    src: url('~@/assets/fonts/source_sans_pro.ttf')
+    src: url('~@/assets/font/source_sans_pro.ttf')
 </style>
