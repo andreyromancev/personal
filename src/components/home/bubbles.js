@@ -1,7 +1,7 @@
 const MIN_RADIUS = 10
 const MAX_RADIUS = 100
 const FLOAT_FACTOR = 1
-const BUBBLE_RATE = 0.2
+const BUBBLE_RATE = 0.5
 
 
 class Bubble {
@@ -15,8 +15,7 @@ class Bubble {
     draw () {
         this.ctx.beginPath()
         this.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false)
-        this.ctx.fill()
-        this.ctx.stroke()
+        this.ctx.closePath()
     }
 }
 
@@ -29,6 +28,7 @@ export class BubbleDrower {
         this.frameTime = null
         this.frameFactor = null
         this.bubbles = new Set()
+        this.spawnTimer = null
     }
 
     spawnBubble () {
@@ -45,19 +45,29 @@ export class BubbleDrower {
 
     stop () {
         this.isRunning = false
+        clearTimeout(this.spawnTimer)
+        this.spawnTimer = null
     }
 
     process () {
         this.element.width = window.innerWidth
         this.element.height = window.innerHeight
 
-        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.01)'
-        this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)'
+        this.ctx.fillStyle = '#383d58'
+        this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)'
 
         for (let bubble of this.bubbles) {
             bubble.draw()
-            bubble.y -= (MAX_RADIUS + MIN_RADIUS - bubble.radius) * FLOAT_FACTOR * this.frameFactor
+            this.ctx.stroke()
+        }
 
+        for (let bubble of this.bubbles) {
+            bubble.draw()
+            this.ctx.fill()
+        }
+
+        for (let bubble of this.bubbles) {
+            bubble.y -= (MAX_RADIUS + MIN_RADIUS - bubble.radius) * FLOAT_FACTOR * this.frameFactor
             if (bubble.y < -bubble.radius) this.bubbles.delete(bubble)
         }
 
