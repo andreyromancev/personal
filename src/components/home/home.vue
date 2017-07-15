@@ -1,36 +1,49 @@
 <template>
-  <div class="home">
-    <div class="content">
-
-      <div class="content__name">Andrey<br>Romancev</div>
-      <img class="logo" src="~@/assets/image/logo.svg">
-      <div class="content__title">full stack web developer</div>
-
-      <div class="buttons">
-        <div class="divider"></div>
-        <div class="content__button">view code</div>
-        <div class="content__button">contact me</div>
-        <div class="divider"></div>
-      </div>
-
-      <a href="mailto:andrey@romancev.com" class="content__email">andrey@romancev.com</a>
-
+    <div class="home">
+        <canvas class="bubble-canvas"></canvas>
+        <div class="content">
+            <div class="content__name">Andrey<br>Romancev</div>
+            <img class="logo" src="~@/assets/image/logo.svg">
+            <div class="content__title">full stack web developer</div>
+            <div class="buttons">
+                <div class="divider"></div>
+                <div class="content__button">view code</div>
+                <div class="content__button">contact me</div>
+                <div class="divider"></div>
+            </div>
+            <a href="mailto:andrey@romancev.com" class="content__email">andrey@romancev.com</a>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
-export default {
-  name: 'home',
-  data () {
-    return {}
+  import { BubbleDrower } from './bubbles'
+
+  export default {
+      data () {
+          return {}
+      },
+
+      created () {
+          this.bubbles = null
+      },
+
+      mounted () {
+          this.bubbles = new BubbleDrower(document.getElementsByClassName('bubble-canvas')[0])
+          this.bubbles.start()
+      }
   }
-}
+
 </script>
 
 <style scoped lang="sass">
   @import "colors"
   @import "mixins"
+
+  .bubble-canvas
+    position: fixed
+    width: 100vw
+    height: 100vh
 
   .home
     font-family: 'Source Sans Pro'
@@ -40,9 +53,11 @@ export default {
     min-height: 100vh
     user-select: none
 
+
   .content
     text-align: center
     color: $c-text
+    z-index: 10
 
   .content__name
     font-family: 'Montserrat'

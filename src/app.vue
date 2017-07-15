@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import Home from './components/home'
+import Home from './components/home/home'
 
 export default {
-  name: 'app',
-  components: {
-    Home
-  }
+    name: 'app',
+    components: {
+        Home
+    }
 }
 </script>
 
