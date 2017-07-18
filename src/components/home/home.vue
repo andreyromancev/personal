@@ -1,9 +1,8 @@
 <template>
-    <div class="home">
+    <div v-on:mousemove="onCanvasCursor" class="home">
         <canvas class="bubble-canvas"></canvas>
         <div class="content">
             <div class="content__name">Andrey<br>Romancev</div>
-            <img class="logo" src="~@/assets/image/logo.svg">
             <div class="content__title">full stack web developer</div>
             <div class="buttons">
                 <div class="divider"></div>
@@ -31,6 +30,12 @@
       mounted () {
           this.bubbles = new BubbleDrower(document.getElementsByClassName('bubble-canvas')[0])
           this.bubbles.start()
+      },
+
+      methods: {
+          onCanvasCursor: function (e) {
+              this.bubbles.setBouncerPosition(e.clientX, e.clientY)
+          }
       }
   }
 
@@ -64,6 +69,7 @@
     font-size: 70px
     line-height: 60px
     cursor: default
+    margin-bottom: 200px
 
   .content__title
     font-size: 18px
