@@ -69,7 +69,7 @@
     font-size: 70px
     line-height: 60px
     cursor: default
-    margin-bottom: 200px
+    margin-bottom: 250px
 
   .content__title
     font-size: 18px
