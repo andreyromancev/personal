@@ -1,5 +1,5 @@
 <template>
-    <div v-on:mousemove="onCanvasCursor" class="home">
+    <div v-on:mousemove="onCanvasCursor" v-on:touchstart="onCanvasTouch" class="home">
         <canvas class="bubble-canvas"></canvas>
         <div class="content">
             <div class="content__name">Andrey<br>Romancev</div>
@@ -17,6 +17,7 @@
 
 <script>
   import { BubbleDrower } from './bubbles'
+  import { isTouchscreen } from '@/utils/device'
 
   export default {
       data () {
@@ -25,16 +26,32 @@
 
       created () {
           this.bubbles = null
+          this.bounce = !isTouchscreen()
+          this.pop = !this.bounce
       },
 
       mounted () {
-          this.bubbles = new BubbleDrower(document.getElementsByClassName('bubble-canvas')[0])
+          const canvasElement = this.$el.getElementsByClassName('bubble-canvas')[0]
+          this.bubbles = new BubbleDrower(canvasElement)
           this.bubbles.start()
+      },
+
+      beforeDestroy () {
+          this.bubbles.stop()
       },
 
       methods: {
           onCanvasCursor: function (e) {
+              if (!this.bounce) return
+
               this.bubbles.setBouncerPosition(e.clientX, e.clientY)
+          },
+
+          onCanvasTouch: function (e) {
+              if (!this.pop) return
+
+              const touch = e.touches[0]
+              this.bubbles.collapseBubble(touch.clientX, touch.clientY)
           }
       }
   }
