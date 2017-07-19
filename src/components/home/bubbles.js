@@ -48,7 +48,9 @@ class Bubble {
     collapse (speedFactor) {
         if (!this.isCollapsing) return
 
-        this.radius -= this.radius / 2 / COLLAPSE_TIME_MS * 1000 * speedFactor
+        const radiusFactor = Math.max(1 - (this.radius - this.collapseRadius) / this.collapseRadius, 0.1)
+        const accelerationFactor = Math.max(Math.pow(radiusFactor, 2), 0.1)
+        this.radius -= this.radius / 2 / COLLAPSE_TIME_MS * 1000 * accelerationFactor * speedFactor
         if (this.radius <= this.collapseRadius) {
             return true
         }
