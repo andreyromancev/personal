@@ -7,11 +7,10 @@ const BOUNCER_BOUNCE_SPEED = 2000
 
 
 class Bubble {
-    constructor (x, y, radius, riseAngle) {
+    constructor (x, y, radius) {
         this.radius = radius || Math.random() * (MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS
         this.x = x || Math.random() * window.innerWidth
         this.y = y || window.innerHeight + this.radius
-        this.riseAngle = riseAngle || 90
     }
 
     draw (ctx) {
@@ -20,9 +19,9 @@ class Bubble {
         ctx.closePath()
     }
 
-    rise (speedFactor) {
+    rise (speedFactor, angle) {
         const delta = (MAX_RADIUS + MIN_RADIUS - this.radius) * speedFactor
-        const angle = this.riseAngle * (Math.PI / 180)
+        angle = angle * (Math.PI / 180)
         this.x += Math.cos(angle) * delta
         this.y -= Math.sin(angle) * delta
     }
@@ -66,24 +65,27 @@ export class BubbleDrower {
         this.spawnTimer = null
         this.bouncer = null
         this.spawnSide = 'bottom'
+        this.riseAngle = 90
     }
 
     spawnBubble () {
         let bubble = new Bubble()
         switch (this.spawnSide) {
             case 'top':
+                bubble.x = window.innerWidth * Math.random()
                 bubble.y = 0 - bubble.radius
-                bubble.riseAngle = 270
+                break
+            case 'bottom':
+                bubble.x = window.innerWidth * Math.random()
+                bubble.y = window.innerHeight + bubble.radius
                 break
             case 'left':
                 bubble.x = 0 - bubble.radius
                 bubble.y = window.innerHeight * Math.random()
-                bubble.riseAngle = 0
                 break
             case 'right':
                 bubble.x = window.innerWidth + bubble.radius
                 bubble.y = window.innerHeight * Math.random()
-                bubble.riseAngle = 180
                 break
         }
         this.bubbles.add(bubble)
@@ -121,10 +123,19 @@ export class BubbleDrower {
     }
 
     setRiseAngle (beta, gamma) {
-        if (gamma > 5) this.spawnSide = 'right'
-        else if (gamma < -5) this.spawnSide = 'left'
-        else if (beta < -5) this.spawnSide = 'top'
-        else this.spawnSide = 'bottom'
+        if (gamma > 5) {
+            this.spawnSide = 'right'
+            this.riseAngle = 0
+        } else if (gamma < -5) {
+            this.spawnSide = 'left'
+            this.riseAngle = 180
+        } else if (beta < -5) {
+            this.spawnSide = 'top'
+            this.riseAngle = 270
+        } else {
+            this.spawnSide = 'bottom'
+            this.riseAngle = 90
+        }
     }
 
     process () {
@@ -161,7 +172,7 @@ export class BubbleDrower {
         }
 
         for (let b1 of this.bubbles) {
-            b1.rise(this.frameFactor)
+            b1.rise(this.frameFactor, this.riseAngle)
             for (let b2 of this.bubbles) {
                 b1.bounce(this.frameFactor, b2)
             }
