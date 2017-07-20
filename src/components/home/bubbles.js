@@ -5,8 +5,6 @@ const BUBBLE_RATE = 0.7
 const BOUNCE_SPEED = 100
 const BOUNCER_RADIUS = 70
 const BOUNCER_BOUNCE_SPEED = 2000
-const COLLAPSE_TIME_MS = 150
-const COLLAPSE_RADIUS = 10
 
 
 class Bubble {
@@ -14,9 +12,6 @@ class Bubble {
         this.radius = radius || Math.random() * (MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS
         this.x = x || Math.random() * window.innerWidth
         this.y = y || window.innerHeight + this.radius
-
-        this.isCollapsing = false
-        this.collapseRadius = null
     }
 
     draw (ctx) {
@@ -45,22 +40,6 @@ class Bubble {
         this.y += Math.sin(angle) * delta
     }
 
-    collapse (speedFactor) {
-        if (!this.isCollapsing) return
-
-        this.radius -= this.radius / 2 / COLLAPSE_TIME_MS * 1000 * speedFactor
-        if (this.radius <= this.collapseRadius) {
-            return true
-        }
-
-        return false
-    }
-
-    startCollapsing () {
-        this.collapseRadius = this.radius / 2
-        this.isCollapsing = true
-    }
-
     isOutOfScreen () {
         if (this.x < -this.radius) return true
         if (this.x > window.innerWidth + this.radius) return true
@@ -68,11 +47,6 @@ class Bubble {
         if (this.y > window.innerHeight + this.radius) return true
 
         return false
-    }
-
-    isPointInside (x, y) {
-        const distance = Math.hypot(x - this.x, y - this.y)
-        return distance < this.radius
     }
 }
 
@@ -98,7 +72,6 @@ export class BubbleDrower {
         this.isRunning = true
         this.iterateFrame()
 
-        this.bubbles.add(new Bubble(window.innerWidth / 2, window.innerHeight / 2, MAX_RADIUS))
         this.spawnBubble()
     }
 
@@ -122,15 +95,6 @@ export class BubbleDrower {
         } else {
             this.bouncer.x = x
             this.bouncer.y = y
-        }
-    }
-
-    collapseBubble (x, y) {
-        for (let b of this.bubbles) {
-            if (!b.isPointInside(x, y)) continue
-
-            b.startCollapsing()
-            return
         }
     }
 
@@ -169,21 +133,6 @@ export class BubbleDrower {
 
         for (let b1 of this.bubbles) {
             b1.up(this.frameFactor)
-
-            if (b1.collapse(this.frameFactor)) {
-                if (b1.radius > COLLAPSE_RADIUS) {
-                    for (let i = 0; i < 2; i++) {
-                        this.bubbles.add(new Bubble(
-                            b1.x + 10 - 20 * Math.random(),
-                            b1.y + 10 - 20 * Math.random(),
-                            b1.radius
-                        ))
-                    }
-                }
-                this.bubbles.delete(b1)
-                continue
-            }
-
             for (let b2 of this.bubbles) {
                 b1.bounce(this.frameFactor, b2)
             }
