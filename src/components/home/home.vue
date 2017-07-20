@@ -17,6 +17,7 @@
 
 <script>
   import { BubbleDrower } from './bubbles'
+  import { isTouchscreen } from '@/utils/device'
 
   export default {
       data () {
@@ -25,6 +26,9 @@
 
       created () {
           this.bubbles = null
+          this.bounce = !isTouchscreen()
+
+          window.addEventListener('deviceorientation', this.onOrientation, true)
       },
 
       mounted () {
@@ -34,7 +38,13 @@
 
       methods: {
           onCanvasCursor: function (e) {
+              if (!this.bounce) return
+
               this.bubbles.setBouncerPosition(e.clientX, e.clientY)
+          },
+
+          onOrientation: function (e) {
+              this.bubbles.setRiseAngle(e.beta, e.gamma)
           }
       }
   }
