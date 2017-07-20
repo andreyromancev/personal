@@ -125,10 +125,10 @@ export class BubbleDrower {
     setRiseAngle (beta, gamma) {
         if (gamma > 5) {
             this.spawnSide = 'right'
-            this.riseAngle = 0
+            this.riseAngle = 180
         } else if (gamma < -5) {
             this.spawnSide = 'left'
-            this.riseAngle = 180
+            this.riseAngle = 0
         } else if (beta < -5) {
             this.spawnSide = 'top'
             this.riseAngle = 270
