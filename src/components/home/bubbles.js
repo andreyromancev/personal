@@ -69,26 +69,7 @@ export class BubbleDrower {
     }
 
     spawnBubble () {
-        let bubble = new Bubble()
-        switch (this.spawnSide) {
-            case 'top':
-                bubble.x = window.innerWidth * Math.random()
-                bubble.y = 0 - bubble.radius
-                break
-            case 'bottom':
-                bubble.x = window.innerWidth * Math.random()
-                bubble.y = window.innerHeight + bubble.radius
-                break
-            case 'left':
-                bubble.x = 0 - bubble.radius
-                bubble.y = window.innerHeight * Math.random()
-                break
-            case 'right':
-                bubble.x = window.innerWidth + bubble.radius
-                bubble.y = window.innerHeight * Math.random()
-                break
-        }
-        this.bubbles.add(bubble)
+        this.bubbles.add(new Bubble())
         this.spawnTimer = setTimeout(() => this.spawnBubble(), 1000 * 1000 / BUBBLE_RATE / window.innerWidth)
     }
 
@@ -122,20 +103,11 @@ export class BubbleDrower {
         }
     }
 
-    setRiseAngle (beta, gamma) {
-        if (gamma > 5) {
-            this.spawnSide = 'right'
-            this.riseAngle = 180
-        } else if (gamma < -5) {
-            this.spawnSide = 'left'
-            this.riseAngle = 0
-        } else if (beta < -5) {
-            this.spawnSide = 'top'
-            this.riseAngle = 270
-        } else {
-            this.spawnSide = 'bottom'
-            this.riseAngle = 90
-        }
+    setTilt (angle) {
+        if (angle > 90) angle = 90
+        else if (angle < -90) angle = -90
+
+        this.riseAngle = 90 + angle
     }
 
     process () {

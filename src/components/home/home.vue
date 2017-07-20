@@ -44,7 +44,7 @@
           },
 
           onOrientation: function (e) {
-              this.bubbles.setRiseAngle(e.beta, e.gamma)
+              this.bubbles.setTilt(e.gamma)
           }
       }
   }
