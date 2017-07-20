@@ -10,7 +10,7 @@ class Bubble {
     constructor (x, y, radius) {
         this.radius = radius || Math.random() * (MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS
         this.x = x || Math.random() * window.innerWidth
-        this.y = y || window.innerHeight + this.radius
+        this.y = y || window.innerHeight + MAX_RADIUS * 2
     }
 
     draw (ctx) {
@@ -47,7 +47,7 @@ class Bubble {
         if (this.x < -this.radius) return true
         if (this.x > window.innerWidth + this.radius) return true
         if (this.y < -this.radius) return true
-        if (this.y > window.innerHeight + this.radius) return true
+        if (this.y > window.innerHeight + MAX_RADIUS * 2) return true
 
         return false
     }
@@ -64,7 +64,6 @@ export class BubbleDrower {
         this.bubbles = new Set()
         this.spawnTimer = null
         this.bouncer = null
-        this.spawnSide = 'bottom'
         this.riseAngle = 90
     }
 
@@ -77,6 +76,7 @@ export class BubbleDrower {
         this.isRunning = true
         this.iterateFrame()
 
+        this.bubbles.add(new Bubble(window.innerWidth / 2, window.innerHeight + MIN_RADIUS, MIN_RADIUS))
         this.spawnBubble()
     }
 
