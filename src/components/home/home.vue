@@ -7,7 +7,7 @@
             <div class="buttons">
                 <div class="divider"></div>
                 <a href="https://github.com/andreyromancev/personal" target="_blank" class="content__button">view code</a>
-                <div class="content__button">contact me</div>
+                <a href="mailto:andrey@romancev.com" class="content__button">contact me</a>
                 <div class="divider"></div>
             </div>
             <a href="mailto:andrey@romancev.com" class="content__email">andrey@romancev.com</a>
@@ -106,6 +106,7 @@
     font-size: 20px
     color: inherit
     text-decoration: none
+    -webkit-tap-highlight-color: transparent
     &:not(:hover)
       @include transition(color 0.2s, background-color 0.2s)
     &:hover
