@@ -10,7 +10,7 @@ class Bubble {
     constructor (x, y, radius) {
         this.radius = radius || Math.random() * (MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS
         this.x = x || Math.random() * window.innerWidth
-        this.y = y || window.innerHeight + MAX_RADIUS * 2
+        this.y = y || window.innerHeight + this.radius
     }
 
     draw (ctx) {
@@ -36,8 +36,7 @@ class Bubble {
         const angle = Math.atan2(this.y - bubble.y, this.x - bubble.x)
         const radiusFactor = bubble.radius / (this.radius + bubble.radius)
         const mergeFactor = 1 - distance / maxRange
-        const hardRange = Math.max(bubble.radius, this.radius)
-        const delta = Math.max((speed || BOUNCE_SPEED) * mergeFactor * radiusFactor * speedFactor, hardRange - distance)
+        const delta = (speed || BOUNCE_SPEED) * mergeFactor * radiusFactor * speedFactor
 
         this.x += Math.cos(angle) * delta
         this.y += Math.sin(angle) * delta
@@ -115,8 +114,8 @@ export class BubbleDrower {
         this.element.height = window.innerHeight
         const ctx = this.element.getContext('2d')
 
-        ctx.fillStyle = '#3c415d'
-        ctx.strokeStyle = '#4b5070'
+        ctx.fillStyle = '#40476b'
+        ctx.strokeStyle = '#4d5580'
         ctx.lineWidth = 5
 
         for (let b of this.bubbles) {
