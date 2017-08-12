@@ -1,3 +1,3 @@
 # Personal
 
-> Andrey Romantsev personal website.
+Andrey Romancev personal website. Production version available at http://romancev.com/.

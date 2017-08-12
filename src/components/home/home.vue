@@ -6,7 +6,7 @@
             <div class="content__title">full stack web developer</div>
             <div class="buttons">
                 <div class="divider"></div>
-                <div class="content__button">view code</div>
+                <a href="https://github.com/andreyromancev/personal" target="_blank" class="content__button">view code</a>
                 <div class="content__button">contact me</div>
                 <div class="divider"></div>
             </div>
@@ -104,6 +104,8 @@
     font-family: 'Montserrat'
     white-space: nowrap
     font-size: 20px
+    color: inherit
+    text-decoration: none
     &:not(:hover)
       @include transition(color 0.2s, background-color 0.2s)
     &:hover
