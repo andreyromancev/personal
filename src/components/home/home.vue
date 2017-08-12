@@ -76,17 +76,23 @@
 
   .content__name
     font-family: 'Montserrat'
-    font-size: 70px
-    line-height: 60px
+    font-size: 40px
+    line-height: 35px
     cursor: default
-    margin-bottom: 250px
+    margin-bottom: 100px
+    @include breakpoint(xs)
+      font-size: 70px
+      line-height: 60px
+      margin-bottom: 250px
 
   .content__title
     font-size: 18px
     cursor: default
-    word-spacing: 2em
-    letter-spacing: 0.1em
     font-weight: bold
+    word-spacing: 1.1em
+    @include breakpoint(xs)
+      word-spacing: 2em
+      letter-spacing: 0.1em
 
   .buttons
     max-width: 100vw
@@ -103,7 +109,7 @@
     margin: 0 5px
     font-family: 'Montserrat'
     white-space: nowrap
-    font-size: 20px
+    font-size: 15px
     color: inherit
     text-decoration: none
     -webkit-tap-highlight-color: transparent
@@ -115,6 +121,9 @@
     &:active
       background: darken($c-text, 10%)
       border-color: darken($c-text, 10%)
+
+    @include breakpoint(xs)
+      font-size: 20px
 
   .content__email
     color: inherit
