@@ -4,3 +4,11 @@ services:
     build: ./web
     ports:
       - '80:80'
+
+  api:
+    build: ./api
+    environment:
+      - MAIL_PORT
+      - MAIL_SERVER
+      - MAIL_USERNAME
+      - MAIL_PASSWORD

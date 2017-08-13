@@ -15,12 +15,16 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
+    port: 8090,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     stylesRoot: path.resolve(__dirname, '../src/styles'),
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'http://localhost:8080'
+      }
+    },
     cssSourceMap: false
   }
 }

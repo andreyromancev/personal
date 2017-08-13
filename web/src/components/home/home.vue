@@ -7,7 +7,7 @@
             <div class="buttons">
                 <div class="divider"></div>
                 <a href="https://github.com/andreyromancev/personal" target="_blank" class="content__button">view code</a>
-                <a href="mailto:andrey@romancev.com" class="content__button">contact me</a>
+                <div @click="onContact" class="content__button">contact me</div>
                 <div class="divider"></div>
             </div>
             <a href="mailto:andrey@romancev.com" class="content__email">andrey@romancev.com</a>
@@ -18,6 +18,7 @@
 <script>
   import { BubbleDrower } from './bubbles'
   import { isTouchscreen } from '@/utils/device'
+  import * as axios from 'axios'
 
   export default {
       data () {
@@ -45,6 +46,13 @@
 
           onOrientation: function (e) {
               this.bubbles.setTilt(e.gamma)
+          },
+
+          onContact: function (e) {
+              axios.post('/api/contact', {
+                  email: 'test@email.com',
+                  message: 'hello from web'
+              })
           }
       }
   }
