@@ -1,28 +1,36 @@
 <template>
     <div v-on:mousemove="onCanvasCursor" class="home">
-        <canvas class="bubble-canvas"></canvas>
-        <div class="content">
-            <div class="content__name">Andrey<br>Romancev</div>
-            <div class="content__title">full stack web developer</div>
-            <div class="buttons">
-                <div class="divider"></div>
-                <a href="https://github.com/andreyromancev/personal" target="_blank" class="content__button">view code</a>
-                <div @click="onContact" class="content__button">contact me</div>
-                <div class="divider"></div>
+        <div class="wrapper" v-bind:class="{ blurred: isContactShown }">
+            <canvas class="bubble-canvas"></canvas>
+            <div class="content">
+                <div class="content__name">Andrey<br>Romancev</div>
+                <div class="content__title">full stack web developer</div>
+                <div class="buttons">
+                    <div class="divider"></div>
+                    <a href="https://github.com/andreyromancev/personal" target="_blank" class="content__button">view code</a>
+                    <div @click="isContactShown = true" class="content__button">contact me</div>
+                    <div class="divider"></div>
+                </div>
+                <a href="mailto:andrey@romancev.com" class="content__email">andrey@romancev.com</a>
             </div>
-            <a href="mailto:andrey@romancev.com" class="content__email">andrey@romancev.com</a>
         </div>
+
+        <contact v-if="isContactShown" @close="isContactShown = false"></contact>
     </div>
 </template>
 
 <script>
   import { BubbleDrower } from './bubbles'
   import { isTouchscreen } from '@/utils/device'
-  import * as axios from 'axios'
+  import Contact from './contact'
 
   export default {
+      components: {
+          Contact
+      },
+
       data () {
-          return {}
+          return {isContactShown: true}
       },
 
       created () {
@@ -46,13 +54,6 @@
 
           onOrientation: function (e) {
               this.bubbles.setTilt(e.gamma)
-          },
-
-          onContact: function (e) {
-              axios.post('/api/contact', {
-                  email: 'test@email.com',
-                  message: 'hello from web'
-              })
           }
       }
   }
@@ -70,12 +71,17 @@
 
   .home
     font-family: 'Source Sans Pro'
-    display: flex
-    align-items: center
-    justify-content: center
     min-height: 100vh
     user-select: none
 
+  .wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    min-height: 100vh
+    &.blurred
+      @include filter(blur, 2px)
 
   .content
     text-align: center
