@@ -30,7 +30,7 @@
       },
 
       data () {
-          return {isContactShown: true}
+          return {isContactShown: false}
       },
 
       created () {
