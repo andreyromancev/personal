@@ -47,7 +47,7 @@
 
       methods: {
           onCanvasCursor: function (e) {
-              if (!this.bounce) return
+              if (!this.bounce || this.isContactShown) return
 
               this.bubbles.setBouncerPosition(e.clientX, e.clientY)
           },
@@ -65,7 +65,9 @@
   @import "mixins"
 
   .bubble-canvas
-    position: fixed
+    top: 0
+    left: 0
+    position: absolute
     width: 100vw
     height: 100vh
 
