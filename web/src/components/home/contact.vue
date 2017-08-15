@@ -17,7 +17,7 @@
                                   class="field message" placeholder="Message"></textarea>
                     </td></tr>
                     <tr><td>
-                        <div class="modal__button" @click="send">
+                        <div v-bind:class="{ touch: isTouch }" @click="send" class="modal__button" >
                             <div v-bind:class="{ active: isSent }" class="modal__button__blinder">
                                 <div class="modal__button__message">sent</div>
                             </div>
@@ -34,6 +34,7 @@
 import * as axios from 'axios'
 
 export default {
+    props: ['isTouch'],
     data () {
         return {
             isEmailError: false,
@@ -150,11 +151,16 @@ export default {
     text-align: center
     font-family: 'Montserrat'
     cursor: pointer
-    transition: all 0.2s
     padding: 10px
     font-weight: bold
-    &:hover
+    -webkit-tap-highlight-color: transparent
+    &:not(:hover)
+      transition: all 0.2s
+    &:hover, &.touch
       background: $c-background
+      color: $c-text
+    &:active
+      background: darken($c-background, 10%)
       color: $c-text
 
   .modal__button__blinder

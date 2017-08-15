@@ -1,21 +1,24 @@
 <template>
     <div v-on:mousemove="onCanvasCursor" class="home">
-        <div class="wrapper" v-bind:class="{ blurred: isContactShown }">
+        <div class="wrapper" v-bind:class="{ blurred: isContactShown && !isTouch}">
             <canvas class="bubble-canvas"></canvas>
             <div class="content">
                 <div class="content__name">Andrey<br>Romancev</div>
                 <div class="content__title">full stack web developer</div>
                 <div class="buttons">
                     <div class="divider"></div>
-                    <a href="https://github.com/andreyromancev/personal" target="_blank" class="content__button">view code</a>
-                    <div @click="isContactShown = true" class="content__button">contact me</div>
+                    <a v-bind:class="{ touch: isTouch }"
+                       href="https://github.com/andreyromancev/personal" target="_blank" class="content__button">view code</a>
+                    <div v-bind:class="{ touch: isTouch }"
+                         @click="isContactShown = true"
+                         class="content__button">contact me</div>
                     <div class="divider"></div>
                 </div>
                 <a href="mailto:andrey@romancev.com" class="content__email">andrey@romancev.com</a>
             </div>
         </div>
 
-        <contact v-if="isContactShown" @close="isContactShown = false"></contact>
+        <contact v-if="isContactShown" @close="isContactShown = false" :isTouch="isTouch"></contact>
     </div>
 </template>
 
@@ -30,12 +33,15 @@
       },
 
       data () {
-          return {isContactShown: false}
+          return {
+              isTouch: isTouchscreen(),
+              isContactShown: false
+          }
       },
 
       created () {
           this.bubbles = null
-          this.bounce = !isTouchscreen()
+          this.bounce = !this.isTouch
 
           window.addEventListener('deviceorientation', this.onOrientation, true)
       },
@@ -131,12 +137,13 @@
     -webkit-tap-highlight-color: transparent
     &:not(:hover)
       @include transition(color 0.2s, background-color 0.2s)
-    &:hover
+    &:hover:not(.touch)
       background: $c-text
       color: $c-background
     &:active
       background: darken($c-text, 10%)
       border-color: darken($c-text, 10%)
+      color: $c-background
 
     @include breakpoint(xs)
       font-size: 20px
