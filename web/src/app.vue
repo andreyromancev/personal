@@ -30,14 +30,10 @@ export default {
     width: 100vw
 
   @font-face
-    font-family: 'Abel'
-    src: url('~@/assets/font/abel.ttf') format('truetype')
-
-  @font-face
     font-family: 'Montserrat'
-    src: url('~@/assets/font/montserrat.ttf')
+    src: url('~@/assets/font/montserrat.woff2')
 
   @font-face
     font-family: 'Source Sans Pro'
-    src: url('~@/assets/font/source_sans_pro.ttf')
+    src: url('~@/assets/font/source_sans_pro.woff2')
 </style>
