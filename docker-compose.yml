@@ -2,11 +2,13 @@ version: '2'
 services:
   web:
     build: ./web
+    restart: always
     ports:
       - '80:80'
 
   api:
     build: ./api
+    restart: always
     environment:
       - MAIL_PORT
       - MAIL_SERVER
