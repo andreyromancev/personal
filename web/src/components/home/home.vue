@@ -8,7 +8,7 @@
                 <div class="buttons">
                     <div class="divider"></div>
                     <a v-bind:class="{ touch: isTouch }"
-                       href="https://github.com/andreyromancev/personal" target="_blank" class="content__button">view code</a>
+                       href="https://github.com/andreyromancev/" target="_blank" class="content__button">view code</a>
                     <div v-bind:class="{ touch: isTouch }"
                          @click="isContactShown = true"
                          class="content__button">contact me</div>
