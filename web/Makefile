@@ -12,6 +12,7 @@ build:
 dev-server:
 	docker rm -f $(CONTAINER_NAME) || true
 	docker run \
+		-e PORT=8090 \
 		-p 8090:8090 -v $(SCRIPT_FOLDER)/src/:/var/app/src/ \
 		-it --init \
 		--name $(CONTAINER_NAME) $(IMAGE_NAME) \
