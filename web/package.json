@@ -4,12 +4,6 @@
   "description": "Andrey Romancev personal website",
   "author": "Andrey Romantsev <andrey@romancev.com>",
   "private": true,
-  "scripts": {
-    "dev": "node build/dev-server.js",
-    "start": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src"
-  },
   "dependencies": {
     "vue": "^2.3.3",
     "sass-loader": "^6.0.3",

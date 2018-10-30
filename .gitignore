@@ -1,5 +1,5 @@
-web/node_modules/
-web/dist/
+# Web generated files
+web/.bundle/
 
-.idea
+# IDE config files
 .idea
