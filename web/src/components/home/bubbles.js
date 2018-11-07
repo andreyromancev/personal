@@ -1,5 +1,5 @@
 const MIN_RADIUS = 10
-const MAX_RADIUS = 100
+const MAX_RADIUS = 150
 const BUBBLE_RATE = 0.7
 const BOUNCE_SPEED = 100
 const BOUNCER_RADIUS = 70
@@ -53,7 +53,7 @@ class Bubble {
 }
 
 
-export class BubbleDrower {
+export class BubbleDrawer {
     constructor (canvasElement) {
         this.element = canvasElement
 

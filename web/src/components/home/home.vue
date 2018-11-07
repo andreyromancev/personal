@@ -3,15 +3,15 @@
         <div class="wrapper" v-bind:class="{ blurred: isContactShown && !isTouch}">
             <canvas class="bubble-canvas"></canvas>
             <div class="content">
-                <div class="content__name">Andrey<br>Romancev</div>
-                <div class="content__title">full stack web developer</div>
+                <div class="content__name">Andrey Romancev</div>
+                <div class="content__title">software engineer</div>
                 <div class="buttons">
                     <div class="divider"></div>
                     <a v-bind:class="{ touch: isTouch }"
                        href="https://github.com/andreyromancev/" target="_blank" class="content__button">view code</a>
                     <div v-bind:class="{ touch: isTouch }"
                          @click="isContactShown = true"
-                         class="content__button">contact me</div>
+                         class="content__button">contact</div>
                     <div class="divider"></div>
                 </div>
                 <a href="mailto:andrey@romancev.com" class="content__email">andrey@romancev.com</a>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import { BubbleDrower } from './bubbles'
+  import { BubbleDrawer } from './bubbles'
   import { isTouchscreen } from '@/utils/device'
   import Contact from './contact'
 
@@ -47,7 +47,7 @@
       },
 
       mounted () {
-          this.bubbles = new BubbleDrower(document.getElementsByClassName('bubble-canvas')[0])
+          this.bubbles = new BubbleDrawer(document.getElementsByClassName('bubble-canvas')[0])
           this.bubbles.start()
       },
 
@@ -78,7 +78,7 @@
     height: 100vh
 
   .home
-    font-family: 'Source Sans Pro'
+    font-family: avenir next,avenir,sans-serif
     min-height: 100vh
     user-select: none
 
@@ -97,24 +97,20 @@
     z-index: 10
 
   .content__name
-    font-family: 'Montserrat'
+    font-weight: lighter
     font-size: 40px
     line-height: 35px
     cursor: default
-    margin-bottom: 100px
+    margin-bottom: 10px
     @include breakpoint(xs)
       font-size: 70px
       line-height: 60px
-      margin-bottom: 250px
 
   .content__title
-    font-size: 18px
+    font-weight: normal
+    font-size: 22px
     cursor: default
-    font-weight: bold
-    word-spacing: 1.1em
-    @include breakpoint(xs)
-      word-spacing: 2em
-      letter-spacing: 0.1em
+    margin-bottom: 100px
 
   .buttons
     max-width: 100vw
@@ -129,7 +125,6 @@
     width: 9em
     cursor: pointer
     margin: 0 5px
-    font-family: 'Montserrat'
     white-space: nowrap
     font-size: 15px
     color: inherit
