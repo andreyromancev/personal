@@ -9,7 +9,9 @@
                                v-bind:class="{ error: isEmailError }"
                                v-on:input="isEmailError = false"
                                v-on:change="isEmailError = false"
-                               class="field email" type="email" placeholder="Email"/>
+                               class="field email" type="email" placeholder="Email" ref="email"
+                               spellcheck="false"
+                        />
                     </td></tr>
                     <tr><td>
                         <textarea v-model="message"
@@ -45,6 +47,10 @@ export default {
         }
     },
 
+    mounted () {
+        this.$refs.email.focus()
+    },
+
     methods: {
         send: function (e) {
             if (this.isSent) {
@@ -53,6 +59,7 @@ export default {
             e.isSendEvent = true
             if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
                 this.isEmailError = true
+                this.$refs.email.focus()
                 return
             }
             this.isEmailError = false
@@ -75,109 +82,110 @@ export default {
 </script>
 
 <style scoped lang="sass">
-  @import "colors"
+    @import "colors"
 
-  .modal__mask
-    position: fixed
-    z-index: 9998
-    top: 0
-    left: 0
-    width: 100vw
-    height: 100vh
-    background-color: rgba(0, 0, 0, .5)
-    display: table
-    transition: opacity .2s ease
+    .modal__mask
+        position: fixed
+        z-index: 9998
+        top: 0
+        left: 0
+        width: 100vw
+        height: 100vh
+        background-color: rgba(0, 0, 0, .5)
+        display: table
+        transition: opacity .1s ease
 
-  .modal__wrapper
-    display: table-cell
-    vertical-align: middle
+    .modal__wrapper
+        display: table-cell
+        vertical-align: middle
 
-  .modal__container
-    width: 100%
-    max-width: 400px
-    margin: 0 auto
-    padding: 20px 30px 10px 30px
-    background-color: white
-    color: $c-background
-    border-radius: 1px
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .33)
-    transition: all .2s ease
-    td
-      padding: 2px
+    .modal__container
+        width: 100%
+        max-width: 700px
+        margin: 0 auto
+        padding: 30px 100px 30px 100px
+        background-color: white
+        color: $c-background
+        border-radius: 1px
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .33)
+        transition: all .1s ease
+        td
+            padding: 2px
 
-  .modal-enter
-    opacity: 0
+    .modal-enter
+        opacity: 0
 
-  .modal-leave-active
-    opacity: 0
+    .modal-leave-active
+        opacity: 0
 
-  .modal-enter .modal__container,
-  .modal-leave-active .modal__container
-    -webkit-transform: scale(1.05)
-    transform: scale(1.05)
+    .modal-enter .modal__container,
+    .modal-leave-active .modal__container
+        -webkit-transform: scale(.95)
+        transform: scale(.95)
 
-  .field
-    width: 100%
-    box-sizing: border-box
-    resize: none
-    outline: 0 transparent
-    background: $c-background
-    border: none
-    color: white
-    padding: 10px
-    border-radius: 1px
-    font-family: 'Source Sans Pro'
-    &::-webkit-input-placeholder
-      color: $c-text
-    &:-ms-input-placeholder
-      color: $c-text
-    &::-moz-placeholder
-      color: $c-text
-    &:-moz-placeholder
-      color: $c-text
+    .field
+        width: 100%
+        box-sizing: border-box
+        resize: none
+        outline: 0 transparent
+        background: $c-background
+        border: none
+        color: white
+        padding: 10px
+        border-radius: 1px
+        font-size: 14px
+        &::-webkit-input-placeholder
+            color: $c-text
+        &:-ms-input-placeholder
+            color: $c-text
+        &::-moz-placeholder
+            color: $c-text
+        &:-moz-placeholder
+            color: $c-text
 
-  .email
-    border: 2px solid transparent
-    transition: border .2s
-    &.error
-      border: 2px solid #c70000
+    .email
+        border: 3px solid transparent
+        transition: border .2s
+        &.error
+            border: 3px solid #c70000
 
-  .message
-    height: 150px
+    .message
+        height: 300px
 
-  .modal__button
-    display: block
-    position: relative
-    text-align: center
-    font-family: 'Montserrat'
-    cursor: pointer
-    padding: 10px
-    font-weight: bold
-    -webkit-tap-highlight-color: transparent
-    &:not(:hover)
-      transition: all 0.2s
-    &:hover, &.touch
-      background: $c-background
-      color: $c-text
-    &:active
-      background: darken($c-background, 10%)
-      color: $c-text
+    .modal__button
+        display: block
+        position: relative
+        text-align: center
+        cursor: pointer
+        padding: 5px
+        border: $c-background 1px solid
+        -webkit-tap-highlight-color: transparent
+        font-size: 25px
+        &:not(:hover)
+            transition: all 0.2s
+        &:hover, &.touch
+            background: $c-background
+            color: $c-text
+        &:active
+            background: darken($c-background, 10%)
+            color: $c-text
 
-  .modal__button__blinder
-    position: absolute
-    width: 100%
-    top: 0
-    left: 0
-    height: 0
-    background: white
-    color: $c-background
-    overflow: hidden
-    transition: height .2s
-    cursor: default
-    &.active
-      height: 100%
-  .modal__button__message
-    padding: 10px
+    .modal__button__blinder
+        position: absolute
+        width: 100%
+        top: 0
+        left: 0
+        height: 0
+        background: white
+        color: $c-background
+        overflow: hidden
+        transition: height .2s
+        cursor: default
+        &.active
+            height: 100%
+
+    .modal__button__message
+        padding: 5px
 
 </style>
 
