@@ -2,7 +2,7 @@ const MIN_RADIUS = 10
 const MAX_RADIUS = 150
 const BUBBLE_RATE = 0.7
 const BOUNCE_SPEED = 100
-const BOUNCER_RADIUS = 70
+const BOUNCER_RADIUS = 150
 const BOUNCER_BOUNCE_SPEED = 2000
 
 
@@ -86,14 +86,6 @@ export class BubbleDrawer {
     }
 
     setBouncerPosition (x, y) {
-        if (
-            x <= BOUNCER_RADIUS || x >= window.innerWidth - BOUNCER_RADIUS ||
-            y <= BOUNCER_RADIUS || y >= window.innerHeight - BOUNCER_RADIUS
-        ) {
-            delete this.bouncer
-            return
-        }
-
         if (!this.bouncer) {
             this.bouncer = new Bubble(x, y, BOUNCER_RADIUS)
         } else {
