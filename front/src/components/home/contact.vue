@@ -9,7 +9,7 @@
                                v-bind:class="{ error: isEmailError }"
                                v-on:input="isEmailError = false"
                                v-on:change="isEmailError = false"
-                               class="field email" type="email" placeholder="Email" ref="email"
+                               class="field email" type="email" placeholder="Your email" ref="email"
                                spellcheck="false"
                         />
                     </td></tr>

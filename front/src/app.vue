@@ -22,18 +22,10 @@ export default {
     margin: 0
 
   .app
-    font-family: 'Avenir', Helvetica, Arial, sans-serif
+    font-family: avenir next,avenir,sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
     background: $c-background
     min-height: 100vh
     width: 100vw
-
-  @font-face
-    font-family: 'Montserrat'
-    src: url('~@/assets/font/montserrat.woff2')
-
-  @font-face
-    font-family: 'Source Sans Pro'
-    src: url('~@/assets/font/source_sans_pro.woff2')
 </style>

@@ -106,8 +106,8 @@ export class BubbleDrawer {
         this.element.height = window.innerHeight
         const ctx = this.element.getContext('2d')
 
-        ctx.fillStyle = '#40476b'
-        ctx.strokeStyle = '#4d5580'
+        ctx.fillStyle = '#464178'
+        ctx.strokeStyle = '#6058a1'
         ctx.lineWidth = 5
 
         for (let b of this.bubbles) {
