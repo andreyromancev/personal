@@ -1,10 +1,11 @@
-IMAGE_NAME = personal_web
-CONTAINER_NAME = personal_web
+IMAGE_NAME = personal_front
+CONTAINER_NAME = personal_front
 SCRIPT_FOLDER = `pwd`
 
 
 .PHONY: build
 start: build dev-server
+bundle: build node-build
 
 build:
 	docker build -t $(IMAGE_NAME) .
@@ -18,7 +19,7 @@ dev-server:
 		--name $(CONTAINER_NAME) $(IMAGE_NAME) \
 		node build/dev-server.js
 
-bundle:
+node-build:
 	docker rm -f $(CONTAINER_NAME) || true
 	docker run \
 		-v $(SCRIPT_FOLDER)/.bundle/:/var/app/.bundle/ \

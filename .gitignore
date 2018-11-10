@@ -1,5 +1,3 @@
-# Web generated files
-.bundle/
-
-# IDE config files
-.idea
+.*
+!/.gitignore
+!.gitkeep
