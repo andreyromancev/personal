@@ -1,13 +1,15 @@
 SCRIPT_FOLDER = `pwd`
 
 
-.PHONY: build restart
+.PHONY: bundle build start
+
+bundle:
+	mkdir .bundle || true
+	make -C front bundle
+	cp -r front/.bundle .bundle/front
 
 build:
-	mkdir .build || true
-	make -C front bundle
-	cp -r front/.bundle .build/front
+	docker-compose build
 
-restart:
-	docker-compose down
-	docker-compose up
+start:
+	docker-compose up -d
