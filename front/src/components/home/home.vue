@@ -22,7 +22,12 @@
                 </div>
             </div>
             <div class="contacts">
-                <span @click="copyText">andrey@romancev.com</span> |
+                <div class="email">
+                     <transition name="bubble">
+                        <div v-if="isBubbleShown" class="copy-bubble">copied to clipboard</div>
+                    </transition>
+                    <span @click="copyText">andrey@romancev.com</span>
+                </div> |
                 <span @click="isContactShown = true"> send message</span>
             </div>
         </div>
@@ -44,7 +49,8 @@
       data () {
           return {
               isTouch: isTouchscreen(),
-              isContactShown: false
+              isContactShown: false,
+              isBubbleShown: false
           }
       },
 
@@ -78,6 +84,10 @@
               el.select()
               document.execCommand('copy')
               document.body.removeChild(el)
+
+              this.isBubbleShown = true
+              if (this.bubbleTimer) { clearTimeout(this.bubbleTimer) }
+              this.bubbleTimer = setTimeout(() => { this.isBubbleShown = false }, 1000)
           }
       }
   }
@@ -133,6 +143,13 @@
         width: 350px
         max-width: 100vw
 
+    .divider
+        border: 0
+        height: 1px
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba($c-text, 0.75), rgba(0, 0, 0, 0))
+        margin: 5px auto
+        width: 100%
+
     .media__icon-container
         height: 40px
 
@@ -159,11 +176,27 @@
             &:hover
                 color: whitesmoke
 
-    .divider
-        border: 0
-        height: 1px
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba($c-text, 0.75), rgba(0, 0, 0, 0))
-        margin: 5px auto
+    .copy-bubble
+        position: relative
+        bottom: 5px
+        margin: auto
         width: 100%
+        text-align: center
+        font-size: 13px
+
+    .bubble-enter-active, .bubble-leave-active
+        transition: opacity .3s, bottom .3s
+
+    .bubble-enter
+        opacity: 0
+        bottom: -10px
+
+    .bubble-leave-to
+        opacity: 0
+
+    .email
+        display: inline-block
+
+
 
 </style>
