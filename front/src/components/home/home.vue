@@ -120,7 +120,6 @@
     .content
         text-align: center
         z-index: 10
-        padding-bottom: 200px
 
     .content__name
         font-weight: lighter
