@@ -4,9 +4,10 @@ SCRIPT_FOLDER = `pwd`
 .PHONY: bundle build start
 
 bundle:
-	mkdir .bundle || true
-	make -C front bundle
-	cp -r front/.bundle .bundle/front
+	rm -r $(SCRIPT_FOLDER)/.bundle || true
+	mkdir $(SCRIPT_FOLDER)/.bundle
+	make -C $(SCRIPT_FOLDER)/front bundle
+	cp -r $(SCRIPT_FOLDER)/front/.bundle $(SCRIPT_FOLDER)/.bundle/front
 
 build:
 	docker-compose build

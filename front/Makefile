@@ -20,6 +20,7 @@ dev-server:
 		node build/dev-server.js
 
 node-build:
+	rm -r $(SCRIPT_FOLDER)/.bundle || true
 	docker rm -f $(CONTAINER_NAME) || true
 	docker run \
 		-v $(SCRIPT_FOLDER)/.bundle/:/var/app/.bundle/ \
