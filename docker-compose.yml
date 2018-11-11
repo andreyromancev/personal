@@ -8,8 +8,8 @@ services:
       - '443:443'
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./.bundle/front:/etc/nginx/front
-      - /etc/letsencrypt:/etc/letsencrypt
+      - ./.bundle/:/etc/nginx/bundle/
+      - /etc/letsencrypt:/etc/letsencrypt/
 
   api:
     build: ./api

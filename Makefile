@@ -5,8 +5,8 @@ SCRIPT_FOLDER = `pwd`
 cert-renew: stop certbot-renew start
 
 bundle:
-	rm -r $(SCRIPT_FOLDER)/.bundle || true
-	mkdir $(SCRIPT_FOLDER)/.bundle
+	mkdir $(SCRIPT_FOLDER)/.bundle || true
+	rm -r $(SCRIPT_FOLDER)/.bundle/*
 	make -C $(SCRIPT_FOLDER)/front bundle
 	cp -r $(SCRIPT_FOLDER)/front/.bundle $(SCRIPT_FOLDER)/.bundle/front
 
