@@ -197,6 +197,4 @@
     .email
         display: inline-block
 
-
-
 </style>
