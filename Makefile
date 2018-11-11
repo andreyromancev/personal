@@ -19,6 +19,12 @@ start:
 stop:
 	docker-compose down
 
+certbot-create:
+	docker run -it --rm -p 443:443 --name certbot \
+	  -v /etc/letsencrypt:/etc/letsencrypt          \
+	  -v /var/log/letsencrypt:/var/log/letsencrypt  \
+	  certbot/certbot certonly --standalone
+
 certbot-renew:
 	docker run -it --rm -p 443:443 --name certbot \
 	  -v /etc/letsencrypt:/etc/letsencrypt          \
