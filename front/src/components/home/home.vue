@@ -168,6 +168,7 @@
     .contacts
         position: absolute
         bottom: 20px
+        color: darken($c-text, 15%)
         span
             cursor: pointer
             margin: 0 5px
