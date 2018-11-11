@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = "Andrey Romancev"
 theme = "ananke"
 
+disqusShortname = "romancev"
+
 [sitemap]
   changefreq = "weekly"
 
