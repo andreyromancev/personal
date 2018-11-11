@@ -1,4 +1,28 @@
-baseURL = "http://example.org/"
+baseURL = "https://romancev.com/blog/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Andrey Romancev"
 theme = "ananke"
+
+[sitemap]
+  changefreq = "weekly"
+
+[params]
+  favicon = ""
+  github = "https://github.com/andreyromancev"
+  description = "Andrey Romancev personal web site."
+  twitter = "#"
+  linkedin = "https://www.linkedin.com/in/romancev/"
+  featured_image = "/images/gohugo-default-sample-hero-image.jpg"
+  recent_posts_number = 3
+  custom_css = ["css/override.css"]
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/"
+
+  [[menu.main]]
+    identifier = "blog"
+    name = "Articles"
+    url = "/blog/"

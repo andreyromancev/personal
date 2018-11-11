@@ -4,8 +4,8 @@ SCRIPT_FOLDER = `pwd`
 
 
 .PHONY: build
-start: build dev-server
-bundle: build hugo-build
+start: dev-server
+bundle: hugo-build
 
 build:
 	docker build -t $(IMAGE_NAME) .
@@ -14,6 +14,7 @@ dev-server:
 	docker rm -f $(CONTAINER_NAME) || true
 	docker run \
 		-it \
+		-v $(SCRIPT_FOLDER)/:/var/app/ \
 		-p 8080:8080 \
 		--name $(CONTAINER_NAME) $(IMAGE_NAME) \
 		hugo server -D --bind 0.0.0.0 -p 8080

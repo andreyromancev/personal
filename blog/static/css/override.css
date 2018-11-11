@@ -1,0 +1,23 @@
+.bg-black {
+    background-color: #3f3c6e;
+}
+
+.white-70 {
+    color: #c7c9d6;
+}
+
+.twitter, .github, .linkedin {
+    fill: #c7c9d6;
+}
+
+.twitter:hover {
+    fill: whitesmoke;
+}
+
+.github:hover {
+    fill: whitesmoke;
+}
+
+.linkedin:hover {
+    fill: white;
+}
