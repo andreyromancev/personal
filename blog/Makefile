@@ -5,7 +5,7 @@ SCRIPT_FOLDER = `pwd`
 
 .PHONY: build
 start: dev-server
-bundle: hugo-build
+bundle: build hugo-build
 
 build:
 	docker build -t $(IMAGE_NAME) .

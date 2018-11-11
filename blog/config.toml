@@ -14,15 +14,15 @@ theme = "ananke"
   linkedin = "https://www.linkedin.com/in/romancev/"
   featured_image = "/images/gohugo-default-sample-hero-image.jpg"
   recent_posts_number = 3
-  custom_css = ["css/override.css"]
+  custom_css = ["/css/override.css"]
 
 [menu]
   [[menu.main]]
     identifier = "about"
     name = "About"
-    url = "/"
+    url = "https://romancev.com/"
 
   [[menu.main]]
     identifier = "blog"
     name = "Articles"
-    url = "/blog/"
+    url = "/"

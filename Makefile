@@ -1,14 +1,21 @@
 SCRIPT_FOLDER = `pwd`
 
 
-.PHONY: bundle build start
+.PHONY: bundle build stop start
 cert-renew: stop certbot-renew start
+bundle: bundle-front bundle-blog
 
-bundle:
+bundle-front:
 	mkdir $(SCRIPT_FOLDER)/.bundle || true
-	rm -r $(SCRIPT_FOLDER)/.bundle/*
 	make -C $(SCRIPT_FOLDER)/front bundle
-	cp -r $(SCRIPT_FOLDER)/front/.bundle $(SCRIPT_FOLDER)/.bundle/front
+	rm -r $(SCRIPT_FOLDER)/.bundle/front || true
+	mv $(SCRIPT_FOLDER)/front/.bundle $(SCRIPT_FOLDER)/.bundle/front
+
+bundle-blog:
+	mkdir $(SCRIPT_FOLDER)/.bundle || true
+	make -C $(SCRIPT_FOLDER)/blog bundle
+	rm -r $(SCRIPT_FOLDER)/.bundle/blog || true
+	mv $(SCRIPT_FOLDER)/blog/.bundle $(SCRIPT_FOLDER)/.bundle/blog
 
 build:
 	docker-compose build
