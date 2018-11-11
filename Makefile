@@ -2,6 +2,7 @@ SCRIPT_FOLDER = `pwd`
 
 
 .PHONY: bundle build start
+cert-renew: stop certbot-renew start
 
 bundle:
 	rm -r $(SCRIPT_FOLDER)/.bundle || true
@@ -14,3 +15,12 @@ build:
 
 start:
 	docker-compose up -d
+
+stop:
+	docker-compose down
+
+certbot-renew:
+	docker run -it --rm -p 443:443 --name certbot \
+	  -v /etc/letsencrypt:/etc/letsencrypt          \
+	  -v /var/log/letsencrypt:/var/log/letsencrypt  \
+	  certbot/certbot renew
