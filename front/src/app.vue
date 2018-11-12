@@ -22,7 +22,7 @@ export default {
     margin: 0
 
   .app
-    font-family: 'Nunito', sans-serif
+    font-family: 'avenir next', 'Nunito', sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
     background: $c-background

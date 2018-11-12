@@ -4,6 +4,7 @@ title = "Andrey Romancev"
 theme = "ananke"
 
 disqusShortname = "romancev"
+MetaDataFormat = "yaml"
 
 [sitemap]
   changefreq = "weekly"
@@ -14,9 +15,9 @@ disqusShortname = "romancev"
   description = "Andrey Romancev personal web site."
   twitter = "#"
   linkedin = "https://www.linkedin.com/in/romancev/"
-  featured_image = "/images/gohugo-default-sample-hero-image.jpg"
+  featured_image = "/images/background.jpg"
   recent_posts_number = 3
-  custom_css = ["/css/override.css"]
+  custom_css = ["/css/main.css"]
 
 [menu]
   [[menu.main]]
