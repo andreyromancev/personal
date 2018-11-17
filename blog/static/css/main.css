@@ -26,6 +26,10 @@
     background-position: center center;
 }
 
+.lh-title {
+    cursor: default;
+}
+
 /* vietnamese */
 @font-face {
     font-family: 'Nunito';
