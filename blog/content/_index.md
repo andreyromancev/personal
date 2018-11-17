@@ -1,4 +1,4 @@
 ---
 title: "Needle in a call stack"
-description: "A blog by Andrey Romancev"
+description: "Blog by Andrey Romancev"
 ---

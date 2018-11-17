@@ -10,7 +10,7 @@ MetaDataFormat = "yaml"
   changefreq = "weekly"
 
 [params]
-  description = "A blog by Andrey Romancev"
+  description = "Blog by Andrey Romancev"
   github = "https://github.com/andreyromancev"
   twitter = "https://twitter.com/aromancev"
   linkedin = "https://www.linkedin.com/in/romancev/"
