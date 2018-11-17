@@ -3,7 +3,6 @@ languageCode = "en-us"
 title = "Andrey Romancev"
 theme = "ananke"
 
-disqusShortname = "romancev"
 MetaDataFormat = "yaml"
 
 [sitemap]
