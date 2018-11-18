@@ -194,11 +194,11 @@
 
     .contacts
         position: absolute
-        bottom: 5px
+        bottom: 10px
         color: darken($c-text, 15%)
         font-size: 12px
         @include breakpoint(xs)
-            bottom: 10px
+            bottom: 15px
             font-size: 15px
         @include breakpoint(md)
             bottom: 20px
