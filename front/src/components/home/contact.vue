@@ -83,6 +83,7 @@ export default {
 
 <style scoped lang="sass">
     @import "colors"
+    @import "mixins"
 
     .modal__mask
         position: fixed
@@ -103,12 +104,16 @@ export default {
         width: 100%
         max-width: 700px
         margin: 0 auto
-        padding: 30px 100px 30px 100px
+        padding: 10px 20px 10px 20px
         background-color: white
         color: $c-background
         border-radius: 1px
         box-shadow: 0 2px 8px rgba(0, 0, 0, .33)
         transition: all .1s ease
+        @include breakpoint(xs)
+            padding: 15px 50px 15px 50px
+        @include breakpoint(md)
+            padding: 30px 100px 30px 100px
         td
             padding: 2px
 
@@ -131,9 +136,9 @@ export default {
         background: $c-background
         border: none
         color: white
-        padding: 10px
+        padding: 5px
         border-radius: 1px
-        font-size: 14px
+        font-size: 10px
         &::-webkit-input-placeholder
             color: $c-text
         &:-ms-input-placeholder
@@ -142,6 +147,12 @@ export default {
             color: $c-text
         &:-moz-placeholder
             color: $c-text
+        @include breakpoint(xs)
+            font-size: 15px
+            padding: 10px
+        @include breakpoint(md)
+            font-size: 14px
+            padding: 10px
 
     .email
         border: 3px solid transparent
@@ -160,7 +171,11 @@ export default {
         padding: 5px
         border: $c-background 1px solid
         -webkit-tap-highlight-color: transparent
-        font-size: 25px
+        font-size: 15px
+        @include breakpoint(xs)
+            font-size: 20px
+        @include breakpoint(md)
+            font-size: 25px
         &:not(:hover)
             transition: all 0.2s
         &:hover, &.touch

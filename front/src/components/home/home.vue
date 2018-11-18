@@ -123,36 +123,61 @@
 
     .content__name
         font-weight: lighter
-        font-size: 40px
-        line-height: 35px
+        font-size: 30px
         cursor: default
-        margin-bottom: 10px
         @include breakpoint(xs)
+            font-size: 40px
+        @include breakpoint(md)
             font-size: 70px
-            line-height: 60px
 
     .content__title
         font-weight: normal
-        font-size: 22px
+        font-size: 14px
         cursor: default
-        margin-bottom: 30px
+        margin-bottom: 10px
+        @include breakpoint(xs)
+            font-size: 18px
+            margin-bottom: 20px
+        @include breakpoint(md)
+            font-size: 22px
+            margin-bottom: 30px
 
     .media
         margin: auto
-        width: 350px
+        width: 150px
         max-width: 100vw
+        @include breakpoint(xs)
+            width: 200px
+        @include breakpoint(md)
+            width: 350px
 
-    $media-icon-size: 45px
+    $media-icon-size: 20px
+    $media-icon-size-xs: 35px
+    $media-icon-size-md: 45px
+
     .media__icon-container
         height: $media-icon-size
+        @include breakpoint(xs)
+            height: $media-icon-size-xs
+        @include breakpoint(md)
+            height: $media-icon-size-md
 
     .media__icon
         display: inline-block
         fill: $c-text
-        margin: 0 5px
         width: $media-icon-size
         height: $media-icon-size
+        margin: 0 2px
         @include transition(fill 0.2s)
+        @include breakpoint(xs)
+            width: $media-icon-size-xs
+            height: $media-icon-size-xs
+            margin: 0 2px
+        @include breakpoint(md)
+            width: $media-icon-size-md
+            height: $media-icon-size-md
+            margin: 0 5px
+
         &:hover
             fill: whitesmoke
         svg
@@ -168,8 +193,16 @@
 
     .contacts
         position: absolute
-        bottom: 20px
+        bottom: 5px
         color: darken($c-text, 15%)
+        font-size: 12px
+        @include breakpoint(xs)
+            bottom: 10px
+            font-size: 15px
+        @include breakpoint(md)
+            bottom: 20px
+            font-size: 20px
+
         span
             cursor: pointer
             margin: 0 5px
@@ -183,7 +216,11 @@
         margin: auto
         width: 100%
         text-align: center
-        font-size: 13px
+        font-size: 9px
+        @include breakpoint(xs)
+            font-size: 12px
+        @include breakpoint(md)
+            font-size: 13px
 
     .bubble-enter-active, .bubble-leave-active
         transition: opacity .3s, bottom .3s
