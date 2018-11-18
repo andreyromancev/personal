@@ -20,6 +20,11 @@ MetaDataFormat = "yaml"
 
 [menu]
   [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+
+  [[menu.main]]
     identifier = "blog"
     name = "Articles"
     url = "/posts/"

@@ -30,6 +30,14 @@
     cursor: default;
 }
 
+.profile-image {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
 /* vietnamese */
 @font-face {
     font-family: 'Nunito';
