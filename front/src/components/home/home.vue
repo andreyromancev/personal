@@ -166,7 +166,7 @@
         @include breakpoint(md)
             width: 350px
 
-    $media-icon-size: 20px
+    $media-icon-size: 25px
     $media-icon-size-xs: 35px
     $media-icon-size-md: 45px
 
@@ -210,10 +210,10 @@
         position: absolute
         bottom: 10px
         color: darken($c-text, 15%)
-        font-size: 12px
+        font-size: 15px
         @include breakpoint(xs)
             bottom: 15px
-            font-size: 15px
+            font-size: 17px
         @include breakpoint(md)
             bottom: 20px
             font-size: 20px
