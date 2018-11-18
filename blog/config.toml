@@ -1,6 +1,6 @@
 baseURL = "https://romancev.com/blog/"
 languageCode = "en-us"
-title = "Andrey Romancev"
+title = "Needle in a call stack"
 theme = "ananke"
 
 MetaDataFormat = "yaml"
