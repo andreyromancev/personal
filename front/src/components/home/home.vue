@@ -102,11 +102,12 @@
         top: 0
         left: 0
         position: absolute
-        width: 100vw
-        height: 100vh
+        width: 100%
+        height: 100%
 
     .home
-        min-height: 100vh
+        height: 100%
+        width: 100%
         user-select: none
         color: $c-text
 
@@ -115,7 +116,7 @@
          align-items: center
          justify-content: center
          width: 100%
-         min-height: 100vh
+         height: 100%
 
     .content
         text-align: center

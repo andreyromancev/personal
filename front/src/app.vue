@@ -18,7 +18,9 @@ export default {
 <style lang="sass">
   @import "colors"
 
-  body
+  body, html
+    width: 100%
+    height: 100%
     margin: 0
 
   .app
@@ -26,6 +28,6 @@ export default {
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
     background: $c-background
-    min-height: 100vh
-    width: 100vw
+    height: 100%
+    width: 100%
 </style>
