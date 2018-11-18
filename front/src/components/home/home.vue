@@ -28,11 +28,11 @@
                     </transition>
                     <span @click="copyText">andrey@romancev.com</span>
                 </div> |
-                <span @click="isContactShown = true"> send message</span>
+                <span @click="showContacts(true)"> send message</span>
             </div>
         </div>
 
-        <contact v-if="isContactShown" @close="isContactShown = false" :isTouch="isTouch"></contact>
+        <contact v-if="isContactShown" @close="showContacts(false)" :isTouch="isTouch"></contact>
     </div>
 </template>
 
@@ -49,7 +49,7 @@
       data () {
           return {
               isTouch: isTouchscreen(),
-              isContactShown: false,
+              isContactShown: window.location.hash === '#contact',
               isBubbleShown: false
           }
       },
@@ -59,6 +59,7 @@
           this.bounce = !this.isTouch
 
           window.addEventListener('deviceorientation', this.onOrientation, true)
+          window.onhashchange = function () { this.isContactShown = window.location.hash === '#contact' }.bind(this)
       },
 
       mounted () {
@@ -88,6 +89,10 @@
               this.isBubbleShown = true
               if (this.bubbleTimer) { clearTimeout(this.bubbleTimer) }
               this.bubbleTimer = setTimeout(() => { this.isBubbleShown = false }, 1000)
+          },
+
+          showContacts: function (isShown) {
+              window.location.hash = isShown ? 'contact' : ''
           }
       }
   }
