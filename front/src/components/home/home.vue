@@ -26,9 +26,10 @@
                      <transition name="bubble">
                         <div v-if="isBubbleShown" class="copy-bubble">copied to clipboard</div>
                     </transition>
-                    <span @click="copyText">andrey@romancev.com</span>
+                    <span @click="copyText" class="link">andrey@romancev.com</span>
                 </div> |
-                <span @click="showContacts(true)"> send message</span>
+                <a href="/blog/" class="link">blog</a> |
+                <span @click="showContacts(true)" class="link">send message</span>
             </div>
         </div>
 
@@ -148,6 +149,14 @@
             font-size: 22px
             margin-bottom: 30px
 
+    .link
+        color: inherit
+        text-decoration: none
+        @include transition(color 0.2s)
+        cursor: pointer
+        &:hover
+            color: whitesmoke
+
     .media
         margin: auto
         width: 150px
@@ -209,12 +218,8 @@
             bottom: 20px
             font-size: 20px
 
-        span
-            cursor: pointer
+        .link
             margin: 0 5px
-            @include transition(color 0.2s)
-            &:hover
-                color: whitesmoke
 
     .copy-bubble
         position: relative
