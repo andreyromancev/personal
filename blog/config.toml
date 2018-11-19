@@ -1,0 +1,35 @@
+baseURL = "https://romancev.com/blog/"
+languageCode = "en-us"
+title = "Needle in a call stack"
+theme = "ananke"
+
+MetaDataFormat = "yaml"
+
+[sitemap]
+  changefreq = "weekly"
+
+[params]
+  description = "Blog by Andrey Romancev"
+  github = "https://github.com/andreyromancev"
+  twitter = "https://twitter.com/aromancev"
+  linkedin = "https://www.linkedin.com/in/romancev/"
+  featured_image = "/images/background.jpg"
+  recent_posts_number = 3
+  custom_css = ["/css/main.css"]
+  cover_dimming_class = "bg-black-50"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+
+  [[menu.main]]
+    identifier = "blog"
+    name = "Articles"
+    url = "/posts/"
+
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "https://romancev.com/"
