@@ -27,7 +27,7 @@ MetaDataFormat = "yaml"
   [[menu.main]]
     identifier = "blog"
     name = "Articles"
-    url = "/posts/"
+    url = "/article/"
 
   [[menu.main]]
     identifier = "contact"
