@@ -6,7 +6,7 @@ theme = "ananke"
 MetaDataFormat = "yaml"
 
 [sitemap]
-  changefreq = "weekly"
+  changefreq = "monthly"
 
 [params]
   description = "Blog by Andrey Romancev"
