@@ -4,6 +4,7 @@ date: 2018-12-12T22:31:18+03:00
 featured_image: "/images/posts/rocket-launch.jpg"
 tags: ["career", "industry"]
 toc: true
+sharethis: true
 ---
 This article is meant for people in the beginning of their career (students, recent graduates and alike), although a degree in Computer Science is not required. What is covered here is mainly related to the IT industry, but most of it should apply elsewhere as the general principles are the same.
 
