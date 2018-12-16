@@ -18,6 +18,7 @@ MetaDataFormat = "yaml"
   custom_css = ["/css/main.css"]
   cover_dimming_class = "bg-black-50"
   show_reading_time = true
+  custom_head_partial = "head.html"
 
 [menu]
   [[menu.main]]
