@@ -12,9 +12,9 @@ Currently, I am a team leader in a blockchain startup and I have 6 years of comm
 
 ## Gain experience
 {{< figure src="/blog/images/posts/level-up.jpg">}}
-To be a good lawyer, you need experience in courtrooms. To be a decent surgeon, you have to get time on the operating table. To be a developer you need experience in... well, developing. Luckily- in software development you can gain actual working experience without going anywhere. The only thing you need is your laptop. So turn it on and get learning!
+To be a good lawyer, you need experience in courtrooms. To be a decent surgeon, you have to get time on the operating table. To be a developer you need experience in... well, developing. Luckily in software development you can gain actual working experience without going anywhere. The only thing you need is your laptop. So turn it on and get learning!
 	
-The internet is full of guides and lessons that will lead you from your first day, to being a relatively competent little coder- although you shouldn't expect quick results. You have chosen a field with a very high entry threshold. You will need to invest 4 to 6 months of intense practice (at least 15 hours per week). It is very individualistic, but you won’t be able to obtain proficiency any faster, even if you are a genius.
+The internet is full of guides and lessons that will lead you from your first day, to being a relatively competent little coder—although you shouldn't expect quick results. You have chosen a field with a very high entry threshold. You will need to invest 4 to 6 months of intense practice (at least 15 hours per week). It is very individualistic, but you won’t be able to obtain proficiency any faster, even if you are a genius.
 
 Start from general tutorials and read a couple of beginner books. They will usually lead you through an example project. Your goal here isn't to learn millions of skills and details by heart, but instead to learn basic skills well. Just remember that there is a particular way to solve a particular kind of problem. When you encounter these problems, you will know where to look.
 
@@ -28,7 +28,7 @@ Being at your first interview is an experience.... your hands start to sweat, yo
 	
 It’s much simpler to keep composed and sure of yourself when you don’t actually need the job. Find a couple of companies you don’t really want to work in, be it due to salaries, ethos or anything else. Take yourself to an interview. Fail it: ask for an unreasonable salary, bombard the interviewer with stupid questions, goof their tests. Have fun.
 
-At some point you’ll feel confident enough- like any learned behaviour. Then, instead of failing, start trying to pass. Remember the general questions you’ve been asked and study these questions later. Do a couple of successful runs and move to the next step. Realising “I don’t know” or “Crap, I haven't worked with this technology yet” is not a career-ender, and being open and honest about your abilities allows them to decide about you, and not some character you've conjured out of fear. The best you can do is articulate yourself positively. If you struggle to solve a test they give you, think aloud. If you’re asked to explain how something works and you have no idea, say something like “I’m not sure, but I would do it like this...”. You might not propose the most effective or precise solution, but it’s much better than nothing. Your goal is to show them that you can think.
+At some point you’ll feel confident enough—like any learned behaviour. Then, instead of failing, start trying to pass. Remember the general questions you’ve been asked and study these questions later. Do a couple of successful runs and move to the next step. Realising “I don’t know” or “Crap, I haven't worked with this technology yet” is not a career-ender, and being open and honest about your abilities allows them to decide about you, and not some character you've conjured out of fear. The best you can do is articulate yourself positively. If you struggle to solve a test they give you, think aloud. If you’re asked to explain how something works and you have no idea, say something like “I’m not sure, but I would do it like this...”. You might not propose the most effective or precise solution, but it’s much better than nothing. Your goal is to show them that you can think.
 
 ## Get a boss
 {{< figure src="/blog/images/posts/mario-boss-level.jpg">}}
@@ -36,10 +36,10 @@ Make a list of companies with interesting positions and study them. Find out wha
 
 Keep in mind that they usually describe their dream candidate on the job posting, but apply even if you don’t meet all the required qualifications. If you do well on the interview and have enough of what they're looking for, they are likely to make you an offer anyway.
 
-Although I have said to fail job interviews to gain experience, when it comes to your first job in IT- try to not be too picky. Unless you peak really early, this job will not be the highlight of your career, so don’t expect it to be. In the beginning, it actually costs the company money to have you work for them. Not only is your contribution to whatever project they assign you not terribly valuable, but the senior staff have to spend their time with and supervising you. You are an investment. Sometimes you can find a good company on your first try, but if not, try to make the best of what is available. 
+Although I have said to fail job interviews to gain experience, when it comes to your first job in IT—try to not be too picky. Unless you peak really early, this job will not be the highlight of your career, so don’t expect it to be. In the beginning, it actually costs the company money to have you work for them. Not only is your contribution to whatever project they assign you not terribly valuable, but the senior staff have to spend their time with and supervising you. You are an investment. Sometimes you can find a good company on your first try, but if not, try to make the best of what is available. 
 
 ## Don’t stop
-{{< figure src="/blog/images/posts/freddie-mercury.jpg">}}
+{{< figure src="/blog/images/posts/pacman.jpg">}}
 So, now you have your first job. Congrats! 
 Now, don't be tempted to take your foot off of the pedal, as the IT industry is constantly evolving and changing. You need to consistently develop yourself and work on your skills, or you will be left behind. Don’t ever stop learning.  Try to learn not only how to do things, but also why and what the alternative solutions are. 
 
@@ -48,7 +48,7 @@ Although in the beginning your colleagues are your best source of knowledge and 
 Push yourself to be uncomfortable. If you didn’t have a “I don’t know how to do this” moment for a week, you are not learning much. Choose your favorite technology stack (or stick to the one you happen to work with) and dig into it. If you realize that you know your environment well enough, dig deeper. Learn how your framework/library/language works on the inside and why certain things work one way and not another. A good habit to get into is to read articles related to your work every day. Keep track of what is happening at the “cutting edge” of the field and who the key figures are. You need to know the direction in which your industry is evolving to see the big picture, which neatly leads us to the next point.
 
 ## Become valuable
-{{< figure src="/blog/images/posts/dicaprio-oscar.jpg">}}
+{{< figure src="/blog/images/posts/skyrim-high-level.jpg">}}
 After a couple of years of reading articles and books as well as developing, you will reach the middle level. This is when you need to start making yourself valuable at your place of work. There is a hierarchy in almost every company which to progress and climb, you first must understand. The guys who do the decision making (CEO, CTO, Team leader, etc.) need to know the most about their field of responsibility, but they can only retain and do so much before they delegate.
 
 There is no point in delegating work if they then have to spend an equal amount of energy and time helping their teammate. Every time you are given a task, your goal should be to minimize your seniors' involvement in it to build up a reliable reputation. Start by consistently delivering on the tasks you’ve been assigned. When you gain more confidence, take more responsibility. Finding opportunities for this isn't always the easiest. So, be proactive and offer to do something yourself. For example, one windy, wet flu-season Monday you find your colleague is absent? Great! Take some of their work. Make yourself familiar with what others around you are doing and why. Your senior colleagues are not aware of all the details and complications of a particular project or implementation, but sometimes they need to know why something was done, or how long a step will take. When that happens, they would much rather ask one reliable person than aggregate information from multiple sources. Be that person. Make their life easier. Allow them to trust you and your knowledge.
@@ -58,7 +58,7 @@ You should present yourself as an abstraction above complicated details. If you 
 At some point, the development of a project (or a part of it) will be significantly harder and slower without you, which means you represent a business value. If the company you work in is in active development or expansion, you will bubble up very quickly. 
 
 ## Repeat
-{{< figure src="/blog/images/posts/edge-of-tomorrow.jpg">}}
+{{< figure src="/blog/images/posts/overwatch-tracer.jpg">}}
 When you become valuable, don’t be afraid to push things a bit. Your primary goal is to develop yourself and progress as a professional. Your own interests should always go before your employers. It doesn’t mean you shouldn’t put effort into your work, of course. Quite the opposite, playing a part in a successful project will look great on your CV.
 
 Talking of CVs, there may come a time when you're ready to hand yours out again. A brief but non-exhaustive list of reasons to consider leaving your current job: no time for self-development during work hours, absence of the freedom to make any decisions about technology stack or architecture, lack of competence of your colleagues (no one to learn from), absence of good or presence of bad (objectively) development practices. 
