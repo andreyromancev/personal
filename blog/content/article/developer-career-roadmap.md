@@ -1,5 +1,5 @@
 ---
-title: "Developer career bootstrap"
+title: "Developer career roadmap"
 date: 2018-12-12T22:31:18+03:00
 featured_image: "/images/posts/rocket-launch.jpg"
 tags: ["career", "industry"]
