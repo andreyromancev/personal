@@ -26,13 +26,13 @@ docker run -it --rm \
   certbot/certbot certonly --standalone
 {{< / highlight >}}
 
-Update your NGINX config:
+Update your NGINX config (replace `mydomain.com` with your domain):
 {{< highlight nginx >}}
 server {
   listen 443 ssl default_server;
 
-  ssl_certificate /etc/letsencrypt/live/romancev.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/romancev.com/privkey.pem;
+  ssl_certificate /etc/letsencrypt/live/mydomain.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/mydomain.com/privkey.pem;
 
   # The rest of your config...
 }
@@ -51,19 +51,19 @@ That's it, we're done!
 
 ## Explanation
 
-First, let's break down the docker command. 
+First, let's break down the Docker command. 
 
-Execute a command in a container. The options tell Docker to run container interactively (`-it`) and remove container after the command has finished (`--rm`).
+Execute a command in a container. The options tell Docker to run container interactively (`-it`) and remove the container after the command has finished (`--rm`).
 {{< highlight bash >}}
 docker run -it --rm
 {{< / highlight >}}
 
-Bind ports 443 (HTTPS) and 80 (HTTP) from the container to the host machine. It is required to perform a URL challange (more on that later).
+Map port 443 (HTTPS) and 80 (HTTP) from the container into the host machine. It is required to perform the URL challenge (more on that later).
 {{< highlight bash >}}
 -p 443:443 -p 80:80
 {{< / highlight >}}
 
-Mount `/etc/letsencrypt` and `/var/log/letsencrypt` directories from the container to the host machine. The container will generate the certificate and logs in those directories.
+Mount `/etc/letsencrypt` and `/var/log/letsencrypt` directories from the container into the host machine. The container will generate the certificate and logs in those directories.
 {{< highlight bash >}}
 -v /etc/letsencrypt:/etc/letsencrypt
 -v /var/log/letsencrypt:/var/log/letsencrypt
@@ -74,11 +74,12 @@ This is the name of the Docker image from Docker hub provided by Letsencrypt.
 certbot/certbot
 {{< / highlight >}}
 
-To obtain a certificate we use the `certonly` command. The `--standalone` option tells certbot to run a temporary web server. This server will respond to request send to your server from letsencrypt. It's required to confirm you servers IP. 
+To obtain a certificate we use the `certonly` command. The `--standalone` option tells certbot to run a temporary web server. This server will respond to the request sent by letsencrypt. It's required to confirm your domain and IP.
 {{< highlight bash >}}
 certonly --standalone
 {{< / highlight >}}
-After running this command you will be asked to provide your email address and agree to the terms of service. After doing so, you will see something like this:
+
+After running this command you will be prompted to provide your email address and agree to the terms of service. After doing so, you will see something like this:
 {{< highlight text >}}
 IMPORTANT NOTES:
  - Congratulations! Your certificate and chain have been saved at
@@ -98,9 +99,11 @@ IMPORTANT NOTES:
    Donating to EFF:                    https://eff.org/donate-le
 {{< / highlight >}}
 
+Now you can use your certificate until it expires (currently 3 months). When that happens, you need to renew it by running `renew` command the same way.
+
 ## Further improvements
 
-To redirect all HTTPS requests to HTTPS you can add this to your NGINX config file: 
+To redirect all HTTP requests to HTTPS you can add this to your NGINX config file: 
 {{< highlight nginx >}}
 server {
   listen 80;
@@ -108,7 +111,7 @@ server {
 }
 {{< / highlight >}}
 
-We can enable auto renewal by putting the renew command in a [crontab](https://en.wikipedia.org/wiki/Cron) to run it every day. 
+We can enable auto renewal by putting the renew command in a [crontab](https://en.wikipedia.org/wiki/Cron) to run it every month. 
 Open crontab file by running:
 
 {{< highlight bash >}}
@@ -117,15 +120,12 @@ crontab -e
 
 Then add this to the file and save it:
 {{< highlight bash >}}
-0 0 * * * * docker run -it --rm \
-  -p 443:443 -p 80:80 \
-  -v /etc/letsencrypt:/etc/letsencrypt \
-  -v /var/log/letsencrypt:/var/log/letsencrypt \
-  certbot/certbot renew
+0 0 1 * * docker run -it --rm -p 443:443 -p 80:80 -v /etc/letsencrypt:/etc/letsencrypt -v /var/log/letsencrypt:/var/log/letsencrypt certbot/certbot renew &> /var/log/certbot/renew.log
 {{< / highlight >}}
 
+Renewal logs will be available at `/var/log/certbot/renew.log` file. 
 
-
+**Important:** If your server is running on 80 or 443 ports, the renewal will fail. You should modify the renewal script to stop the server before renewal and starting it again after.
 
 
 
