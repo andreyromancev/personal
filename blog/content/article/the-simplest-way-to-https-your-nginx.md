@@ -15,7 +15,7 @@ sharethis: true
 
 ## TL;DR
 
-We will be using the official letsencrypt Docker [image](https://hub.docker.com/r/certbot/certbot) to issue and renew SSL certificates with minimum effort.
+We will be using the official letsencrypt Docker [image](https://hub.docker.com/r/certbot/certbot) to issue and renew SSL certificates with minimum effort. All the steps are performed on virtual server with Ubuntu 18.04.
 
 Create letsencrypt certificate:
 {{< highlight bash >}}
@@ -103,11 +103,15 @@ Now you can use your certificate until it expires (currently 3 months). When tha
 
 ## Further improvements
 
-To redirect all HTTP requests to HTTPS you can add this to your NGINX config file: 
+To redirect all HTTP requests to HTTPS you can add this to your NGINX config file (notice that redirect is inside additional `server` directive): 
 {{< highlight nginx >}}
 server {
   listen 80;
   return 301 https://$server_name$request_uri;
+}
+
+server {
+  # your SSL server config here.
 }
 {{< / highlight >}}
 
