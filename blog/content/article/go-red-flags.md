@@ -75,7 +75,7 @@ func (w *Waiter) Release() {
 {{< / highlight >}}
 
 ## Copying a structure
-Check for syncronizations primitives (channels, mutexes and alike) defined in the structure. New ones should be created for the new structure.
+Check for syncronization primitives defined in the structure. New ones should be created for the new structure.
 
 {{< highlight go >}}
 type MyStruct struct {
