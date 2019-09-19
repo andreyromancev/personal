@@ -1,5 +1,5 @@
 ---
-title: "The simplest way to HTTPS your NGINX"
+title: "NGINX with HTTPS for those in a hurry"
 date: 2019-01-23T23:03:18+03:00
 featured_image: "/images/posts/container-lock.jpg"
 summary: "We will be using the official letsencrypt Docker image to issue and renew SSL certificates with minimum effort."
