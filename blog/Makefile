@@ -25,7 +25,5 @@ hugo-build:
 	docker run \
 		-v $(SCRIPT_FOLDER)/.bundle/:/var/app/.bundle/ \
 		-e HUGO_ENV=production \
-		--env-file .env \
-		-it \
 		--name $(CONTAINER_NAME) $(IMAGE_NAME) \
 		hugo -d .bundle
