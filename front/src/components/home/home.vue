@@ -27,7 +27,7 @@
                         <span @click="copyText" class="link">a@romancev.com</span>
                     </div>
                     <a href="/blog/" class="link">blog</a>
-                    <a href="/about/" class="link">about</a>
+                    <a href="/blog/about/" class="link">about</a>
                 </div>
             </div>
         </div>
