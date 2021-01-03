@@ -25,6 +25,5 @@ node-build:
 	docker run \
 		-v $(SCRIPT_FOLDER)/.bundle/:/var/app/.bundle/ \
 		-it --init \
-		--env-file .env \
 		--name $(CONTAINER_NAME) $(IMAGE_NAME) \
 		node build/build.js
