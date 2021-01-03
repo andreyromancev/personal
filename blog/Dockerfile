@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-ENV HUGO_VERSION 0.51
+ENV HUGO_VERSION 0.80.0
 ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
 
 RUN mkdir /usr/local/hugo
