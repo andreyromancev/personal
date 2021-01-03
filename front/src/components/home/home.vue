@@ -202,6 +202,7 @@
         width: 100%
         text-align: center
         font-size: 9px
+        z-index: -10
         @include breakpoint(xs)
             font-size: 12px
         @include breakpoint(md)
