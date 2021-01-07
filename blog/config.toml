@@ -10,9 +10,9 @@ MetaDataFormat = "yaml"
 
 [params]
   description = "Blog by Andrey Romancev"
-  github = "https://github.com/andreyromancev"
-  twitter = "https://twitter.com/aromancev"
-  linkedin = "https://www.linkedin.com/in/romancev/"
+  github = "https://romancev.com/github"
+  twitter = "https://romancev.com/twitter"
+  linkedin = "https://romancev.com/linkedin"
   featured_image = "/images/background.jpg"
   recent_posts_number = 3
   custom_css = ["/css/main.css"]
